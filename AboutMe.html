@@ -1,0 +1,131 @@
+<html lang="en">
+
+<head>
+    <title>Graysons Aboout Me</title>
+    <link rel="icon"href="Images/favicon.ico" />
+    <style>
+        section {
+            border: 2px solid rgb(0, 0, 0);
+            width: 210px;
+        }
+        
+        body {
+            background: rgb(255, 228, 252);
+        }
+        
+        h1 {
+            color: rgb(188, 122, 250);
+            text-shadow: -.7px -.7px 0 #000, .7px -.7px 0 #000, -.7px .7px 0 #000, .7px .7px 0 #000;
+        }
+        
+        h4 {
+            font-weight: bold;
+            color: rgb(235, 188, 255);
+            text-shadow: -.7px -.7px 0 #000, .7px -.7px 0 #000, -.7px .7px 0 #000, .7px .7px 0 #000;
+        }
+        
+        button {
+            background: rgb(226, 196, 255);
+            width: 100px;
+        }
+        
+        button:hover {
+            color: rgb(255, 255, 255);
+            background: rgb(188, 122, 250);
+        }
+        
+        #myRange {
+            width: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <h1>
+            <center>About Me, Grayson</center>
+        </h1>
+
+        <h4>Interests</h4>
+        <section>
+            <p>Airplanes/Jets</p>
+            <p>Tanks</p>
+            <p>Painting Models</p>
+        </section>
+
+        <h4>Favorite Music Artists</h4>
+        <section>
+            <p>Primus</p>
+            <p>Soul Coughing</p>
+            <p>My Chemical Romance</p>
+            <p>Rage Against the Machine</p>
+            <p>Korn</p>
+            <p>Buckethead</p>
+        </section>
+
+        <h4>Pictures</h4>
+        <section>
+            <img src="About Me Pics/Porksodacover.jpg" height="100" width="100">
+            <img src="About Me Pics/Strike Eagle.jpeg" height="100" width="100">
+        </section>
+
+        <h4>Links </h4>
+        <section>
+            <table>
+                <tr>
+                    <td>
+                        <center>
+                            <button onclick="window. open('lists.html')">Lists</button>
+                            <br>
+                            <button onclick="window. open('music.html')">Music</button>
+                            <br>
+                            <button onclick="window. open('Table.html')">Table</button>
+                            <br>
+                            <button onclick="window. open('Inline vs Block.html')">IL Vs Block</button>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <button onclick="window. open('links.html')">Links</button>
+                            <br>
+                            <button onclick="window. open('Form.html')">Form</button>
+                            <br>
+                            <button onclick="window. open('AboutMe.html')">About Me </button>
+                            <br>
+                            <button onclick="window. open('CSS template.html')">Template </button>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <br>
+
+        <section>
+            <div class="slider-container">
+                <input type="range" min="0" max="1" value="0" class="slider" id="Slider">
+                <div id="value">Value: 0</div>
+                <div id="binary-value">Binary Value: 0</div>
+            </div>
+        </section>
+
+        <script>
+            const Slider = document.getElementById("Slider");
+            const BinaryValue = document.getElementById("binary-value");
+            var Value = document.getElementById("value");
+
+            Slider.addEventListener("input", UpdateValues);
+
+            function UpdateValues() {
+                const DecimalString = parseInt(Slider.value);
+                const BinaryString = DecimalString.toString(2).padStart(8);
+
+                BinaryValue.textContent = `Binary Value: ${BinaryString}`;
+                value.textContent = `Value: ${DecimalString}`;
+            }
+        </script>
+    </center>
+</body>
+
+</html>
