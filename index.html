@@ -3,6 +3,7 @@
 
 <head>
     <link rel="icon" href="Images/favicon.ico" />
+    <script src="https://kit.fontawesome.com/f98189272e.js" crossorigin="anonymous"></script>
     <style>
         body {
             background-color: rgb(229, 183, 227);
@@ -22,16 +23,6 @@
             display: flex;
         }
         
-        h4 {
-            margin: 15px;
-            padding-inline: 10px;
-            border: solid;
-        }
-        
-        h4:hover {
-            background-color: white;
-        }
-        
         main {
             background-color: pink;
             flex: 1;
@@ -44,60 +35,43 @@
             min-height: 10vh;
         }
         
-        a {
-            color: hotpink;
-        }
-        
-        a.Genre {
-            color: black;
-            text-decoration: none;
-        }
-        
-        a.Genre:hover {
-            color: black;
-        }
-        
-        h6 {
-            margin: 0px;
-        }
-        
-        table,
-        tr,
-        td {
-            border: solid;
-        }
-        
-        input {
-            pointer-events: none;
-        }
-        
-        table {
-            padding: 10px;
-        }
-        
-        iframe {
-            height: 100px;
-            width: 100%;
-            padding-top: 12.5px;
-            margin: 0px;
-            box-sizing: border-box;
-        }
-        
-        img {
-            padding-top: 3px;
-        }
-        
-        a.ArtistLinks {
+        summary {
             color: rgb(211, 61, 134);
-            text-decoration: none;
         }
         
-        a.ArtistLinks:hover {
-            color: white
+        details>summary {
+            list-style-type: none;
+            cursor: pointer;
         }
         
-        html {
-            scroll-behavior: smooth;
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        details>summary::before {
+            font-family: "Font Awesome 6 Free";
+            content: "\f004";
+            display: inline-block;
+        }
+        
+        details[open]>summary::before {
+            font-family: "Font Awesome 6 Free";
+            content: "\f004";
+            display: inline-block;
+        }
+        
+        button {
+            background: rgb(226, 196, 255);
+            width: 100px;
+        }
+        
+        button:hover {
+            color: rgb(255, 255, 255);
+            background: rgb(188, 122, 250);
+        }
+        
+        summary.layer2 {
+            color: rgb(195, 104, 220);
         }
     </style>
     <title>
@@ -107,170 +81,53 @@
 
 <body>
     <header>
-        <h2>Graysons Music Ratings</h1>
+        <center>
+            <h2>Hub</h1>
+        </center>
     </header>
     <nav>
-
-        <h4 style="background-color:pink"><a href="index.html" class="Genre">Funk </a></h4>
-        <h4><a href="Rock.html" class="Genre">Rock </a></h4>
-        <h4><a href="Metal.html" class="Genre">Metal </a></h4>
-        <h4><a href="AboutMe.html" class="Genre">About me </a></h4>
-        <h4><a href="Artist Profiles.html" class="Genre">Artist Profiles </a></h4>
     </nav>
 
     <main>
         <center>
-            <h3>Funk</h3>
+            <details>
+                <summary> Version 1</summary>
+                <details>
+                    <summary class="layer2"> Random stuff</summary>
+                    <a href="Version 1/lists.html"><button>Lists</button></a>
+                    <br>
+                    <a href="Version 1/music.html"><button>Music</button></a>
+                    <br>
+                    <a href="Version 1/table.html"><button>Table</button></a>
+                    <br>
+                    <a href="Version 1/Inline vs Block.html"><button>IL vs Block</button></a>
+                    <br>
+                    <a href="Version 1/links.html"><button>Links</button></a>
+                    <br>
+                    <a href="Version 1/form.html"><button>Form</button></a>
+                    <br>
+                    <a href="Version 1/AboutMe.html"><button>About Me</button></a>
+                    <br>
+                    <a href="Version 1/CSS template.html"><button>Template</button></a>
+                    <br>
+                    <a href="Version 1/Day 10.html"><button>Day 10</button></a>
+                </details>
+                <details>
+                    <summary class="layer2"> Static Website</summary>
+                    <a href="Version 1/funk.html"><button>Funk</button></a>
+                    <br>
+                    <a href="Version 1/Rock.html"><button>Rock</button></a>
+                    <br>
+                    <a href="Version 1/metal.html"><button>Metal</button></a>
+                    <br>
+                    <a href="Version 1/Artist Profiles.html"><button>Artist Profiles</button></a>
+                    <br>
+                </details>
+            </details>
+            <details>
+                <summary> Version 2</summary>
 
-            <table>
-                <thead>
-                    <th>Artist</th>
-                    <th>Name</th>
-                    <th>Rating</th>
-                    <th>Album</th>
-                    <th>Song</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <center> <a class="ArtistLinks" href="Artist Profiles.html#Primus">
-                                Primus
-                            </a></center>
-                        </td>
-                        <td>
-                            <center>Hamburger Train</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="91" class="slider" id="Slider"></td>
-                        <td><img src="Images/PorkSoda.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tdWYwH8xIOoSeNoEz7QqV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center> <a class="ArtistLinks" href="Artist Profiles.html#Les Claypool">
-                                Les Claypool
-                            </a></center>
-                        </td>
-                        <td>
-                            <center>Red State Girl</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="87" class="slider" id="Slider"></td>
-                        <td><img src="Images/Of Fungi and Foe.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5P5lm3i1dtScNMI2EbGI2o?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center> <a class="ArtistLinks" href="Artist Profiles.html#Les Claypool">
-                                Les Claypool
-                            </a></center>
-                        </td>
-                        <td>
-                            <center>Of Fungi and Foe</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="79" class="slider" id="Slider"></td>
-                        <td><img src="Images/Of Fungi and Foe.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6cAkpn3hGNLuVPq863B8bu?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center> <a class="ArtistLinks" href="Artist Profiles.html#Primus">
-                                Primus
-                            </a></center>
-                        </td>
-                        <td>
-                            <center>Mr. Krinkle</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="82" class="slider" id="Slider"></td>
-                        <td><img src="Images/PorkSoda.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6VEn2d1Qyxv13xOKZudotA?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center>Infectious Grooves</center>
-                        </td>
-                        <td>
-                            <center>Violent & Funky</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="69" class="slider" id="Slider"></td>
-                        <td><img src="Images/Infectious Grooves.jpg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7je6HRz7AoYt0HoW0gEUdP?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center> <a class="ArtistLinks" href="Artist Profiles.html#Rage Against the Machine">
-                                Rage Against the Machine
-                            </a></center>
-                        </td>
-                        <td>
-                            <center>Vietnow</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="74" class="slider" id="Slider"></td>
-                        <td><img src="Images/Evil Empire.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lCC3flXDsXQrNPcvDojuI?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center>Flagman</center>
-                        </td>
-                        <td>
-                            <center>Hot Off the Log</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="87" class="slider" id="Slider"></td>
-                        <td><img src="Images/Flagman.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/71XOYNF66eyPMBr0eMNBU1?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center> <a class="ArtistLinks" href="Artist Profiles.html#Primus">
-                                Primus
-                            </a></center>
-                        </td>
-                        <td>
-                            <center>Tommy the Cat</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="97" class="slider" id="Slider"></td>
-                        <td><img src="Images/Sailing the Seas of Cheese.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0kquzTsZG4m9qmLJaPSY9U?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center> <a class="ArtistLinks" href="Artist Profiles.html#Colonel Claypools Bucket of Bernie Brains">
-                                Colonel Claypools <br>Bucket of Bernie Brains
-                            </a></center>
-                        </td>
-                        <td>
-                            <center>Buckethead</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="94" class="slider" id="Slider"></td>
-                        <td><img src="Images/Big Eyeball in the Sky.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3nNtspzIKxlCWI9SfZoyqX?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center> <a class="ArtistLinks" href="Artist Profiles.html#Rage Against the Machine">
-                                Rage Against the Machine
-                            </a></center>
-                        </td>
-                        <td>
-                            <center>Wake Up</center>
-                        </td>
-                        <td><input type="range" min="0" max="100" value="96" class="slider" id="Slider"></td>
-                        <td><img src="Images/Rage Against the Machine.jpeg" width="100px"></td>
-                        <td><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2QiqwOVUctPRVggO9G1Zs5?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe></td>
-                    </tr>
-
-                </tbody>
-            </table>
-
+            </details>
         </center>
     </main>
 
