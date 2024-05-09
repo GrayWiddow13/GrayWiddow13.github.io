@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        p {
+            display: inline;
+        }
+        
+        input.Result {
+            pointer-events: none;
+        }
+    </style>
+    <script>
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46) {
+                return false;
+            }
+            return true;
+        }
+
+        function Add() {
+            const Add1 = document.getElementById("Add1")
+            const Add2 = document.getElementById("Add2")
+
+            const Sum = (Number(Add1.value) + Number(Add2.value)).toFixed(2)
+
+            document.getElementById("AddResult").value = Sum
+        }
+
+        function Multiply() {
+            const Mult1 = document.getElementById("Mult1")
+            const Mult2 = document.getElementById("Mult2")
+
+            const Product = (Number(Mult1.value) * Number(Mult2.value)).toFixed(2)
+
+            document.getElementById("MultResult").value = Product
+        }
+
+        function Pyt() {
+            const Pyt1 = document.getElementById("Pyt1")
+            const Pyt2 = document.getElementById("Pyt2")
+
+            const C = Math.sqrt((Number(Pyt1.value) ** 2) + (Number(Pyt2.value) ** 2)).toFixed(2)
+
+            document.getElementById("PytResult").value = C
+        }
+    </script>
+</head>
+
+<body>
+    <input onkeypress="return isNumber(event)" id="Add1">
+    <p>+</p>
+    <input onkeypress="return isNumber(event)" id="Add2">
+    <p>=</p>
+    <input class="Result" id="AddResult">
+    <button onclick="Add()">Add</button>
+
+    <br>
+
+    <input onkeypress="return isNumber(event)" id="Mult1">
+    <p>x</p>
+    <input onkeypress="return isNumber(event)" id="Mult2">
+    <p>=</p>
+    <input class="Result" id="MultResult">
+    <button onclick="Multiply()">Multiply</button>
+
+    <br>
+
+    <p>Pythagorean Theorem</p>
+    <br>
+    <p>A=</p>
+    <input onkeypress="return isNumber(event)" id="Pyt1">
+    <br>
+    <p>B=</p>
+    <input onkeypress="return isNumber(event)" id="Pyt2">
+    <br>
+    <p>C=</p>
+    <input class="Result" onkeypress="return isNumber(event)" id="PytResult">
+    <br>
+    <button onclick="Pyt()">Find C</button>
+
+</body>
+
+</html>
