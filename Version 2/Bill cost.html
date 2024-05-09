@@ -11,11 +11,6 @@
             const TipAmt = (NumberBox.value * PercBox.value) / 100;
             const Total = parseFloat(NumberBox.value) + parseFloat(TipAmt);
 
-            if (TipAmt > NumberBox.value) {
-                const TipAmt = "Please enter Valid Number"
-                const Total = "Please enter Valid Number"
-            }
-
             document.getElementById("Total").textContent = Total;
             document.getElementById("Tip").textContent = TipAmt;
 
