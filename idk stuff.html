@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        var count = 1;
+
+        function newPara() {
+            var new_p = document.createElement('p');
+            new_p.setAttribute('class', 'pClass');
+            new_p.setAttribute('id', 'new_para_' + count++);
+
+            var newContent = document.createTextNode(document.getElementById('content').value);
+            new_p.appendChild(newContent);
+
+            document.getElementsByTagName('body')[0].insertBefore(new_p, document.getElementById('create'));
+        }
+    </script>
+</head>
+
+<body>
+    <p class=”pClass”>This is in a paragraph. <br/></p>
+
+
+    <div id="create">
+        <textarea id="content"> </textarea>
+        <button onclick="newPara();"> Create </button>
+    </div>
+
+
+</body>
+
+</html>

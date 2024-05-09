@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function calculate() {
+            const NumberBox = document.getElementById("NumContent");
+            const PercBox = document.getElementById("PercContent");
+            let value = document.getElementById("value");
+            const TipAmt = (NumberBox.value * PercBox.value) / 100;
+            const Total = parseFloat(NumberBox.value) + parseFloat(TipAmt)
+            document.getElementById("Total").textContent = Total;
+            document.getElementById("Tip").textContent = TipAmt;
+
+            if (TipAmt > NumberBox.value) {
+                const TipAmt = "Please enter Valid Number"
+                const Total = "Please enter Valid Number"
+            }
+
+
+
+        }
+
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46) {
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="textbox">
+        <table>
+            <tr>
+                <td><label>Bill Cost</label></td>
+                <td><label>Percentage</label></td>
+            </tr>
+            <tr>
+                <td> <textarea id="NumContent" onkeypress="return isNumber(event)"></textarea></td>
+                <td><textarea id="PercContent" onkeypress="return isNumber(event)"></textarea></td>
+            </tr>
+        </table>
+        <button onclick="calculate();">Calculate</button>
+    </div>
+    <ul>
+        <li>Tip: $<span id="Tip"></span></li>
+        <li>Total: $<span id="Total"></span></li>
+    </ul>
+</body>
+
+</html>
