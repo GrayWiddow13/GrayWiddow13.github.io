@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="Version 1/Images/favicon.ico" />
+    <style>
+        p {
+            display: inline;
+        }
+        
+        .answer {
+            pointer-events: none;
+        }
+        
+        body {
+            background-color: rgb(229, 183, 227);
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background-color: rgb(229, 183, 227);
+            min-height: 2vh;
+        }
+        
+        nav {
+            flex-direction: row;
+            background-color: rgb(229, 174, 183);
+            display: flex;
+        }
+        
+        main {
+            background-color: pink;
+            flex: 1;
+            min-height: 84vh;
+        }
+        
+        footer {
+            background-color: rgb(229, 183, 227);
+            flex: 1;
+            min-height: 10vh;
+        }
+        
+        h6 {
+            margin: 0px;
+        }
+        
+        button {
+            background: rgb(226, 196, 255);
+            width: 100px;
+        }
+        
+        button:hover {
+            color: rgb(255, 255, 255);
+            background: rgb(188, 122, 250);
+        }
+    </style>
+    <script>
+        function findDistance(xOne, yOne, xTwo, yTwo) {
+            const answer = Math.sqrt(Math.pow(xTwo - xOne, 2) + Math.pow(yTwo - yOne, 2)).toFixed(1)
+            document.getElementById("DistanceAnswer").value = answer
+        }
+
+        function findMidPoint(xOne, yOne, xTwo, yTwo) {
+
+            const yCord = ((yOne + yTwo) / 2).toFixed(1);
+            const xCord = ((xOne + xTwo) / 2).toFixed(1);
+            document.getElementById("MidpointAnswer").value = xCord + ", " + yCord;
+        }
+
+        function calculateVal(outputType) {
+            const xOne = Number(document.getElementById("x_1").value)
+            const xTwo = Number(document.getElementById("x_2").value)
+            const yOne = Number(document.getElementById("y_1").value)
+            const yTwo = Number(document.getElementById("y_2").value)
+
+            if (outputType == 'distance') {
+                findDistance(xOne, yOne, xTwo, yTwo)
+            } else if (outputType == 'midpoint') {
+                findMidPoint(xOne, yOne, xTwo, yTwo)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <center>
+            <h1>Distance and Midpoint Calc</h1>
+        </center>
+    </header>
+    <nav>
+
+    </nav>
+    <main>
+        <center>
+            <br> x
+            <sub>1</sub>:
+            <input id="x_1" type="text" /><br> y
+            <sub>1</sub>:
+            <input id="y_1" type="text" /><br> x
+            <sub>2</sub>:
+            <input id="x_2" type="text" /><br> y
+            <sub>2</sub>:
+            <input id="y_2" type="text" /><br>
+            <button onclick="calculateVal('distance')" type="button">Find Distance</button>
+            <button onclick="calculateVal('midpoint')" type="button">Find Midpoint</button>
+            <br>
+
+            <p>Distance - </p>
+            <input id="DistanceAnswer" class="answer">
+            <br>
+
+            <p>Midpoint - </p>
+            <input id="MidpointAnswer" class="answer">
+            <br>
+        </center>
+    </main>
+
+    <footer>
+        <center>
+            <h6>Made by Grayson Renner</h6>
+            <h6>Shakopee High School</h6>
+            <h6>100 17th Ave W, Shakopee, MN 55379</h6>
+            <h6>Last updated May 3rd 2024</h6>
+        </center>
+    </footer>
+</body>

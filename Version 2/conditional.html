@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="Version 1/Images/favicon.ico" />
+    <style>
+        body {
+            background-color: rgb(229, 183, 227);
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background-color: rgb(229, 183, 227);
+            min-height: 2vh;
+        }
+        
+        nav {
+            flex-direction: row;
+            background-color: rgb(229, 174, 183);
+            display: flex;
+        }
+        
+        main {
+            background-color: pink;
+            flex: 1;
+            min-height: 84vh;
+        }
+        
+        footer {
+            background-color: rgb(229, 183, 227);
+            flex: 1;
+            min-height: 10vh;
+        }
+        
+        h6 {
+            margin: 0px;
+        }
+    </style>
+    <script>
+        function example() {
+            const userIn = document.getElementById("myText").value;
+            if (userIn == "Cake") {
+                alert("I like cake")
+            } else if (userIn == "Ice Cream") {
+                alert("I like ice cream")
+            } else {
+                alert("This is not cake")
+            }
+            alert("Done")
+        }
+    </script>
+
+</head>
+
+<body>
+    <header>
+    </header>
+    <nav></nav>
+    <main>
+        <center>
+            <br>
+            <input id="myText">
+            <br>
+            <input type="Button" onclick="example()" value="Submit">
+        </center>
+    </main>
+    <footer>
+        <center>
+            <a href="../index.html" style="color:hotpink">
+                <h6>Hub</h6>
+            </a>
+            <h6>Made by Grayson Renner</h6>
+            <h6>Shakopee High School</h6>
+            <h6>100 17th Ave W, Shakopee, MN 55379</h6>
+        </center>
+    </footer>
+</body>
+
+</html>

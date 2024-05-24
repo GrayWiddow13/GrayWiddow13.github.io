@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function isNegative() {
+            const num = document.getElementById("num").value;
+            if (Number(num) < 0) {
+                alert("negative")
+            }
+
+        }
+
+        function isNegOrNon() {
+            const num = document.getElementById("num").value;
+            if (Number(num) < 0) {
+                alert("negative")
+            } else {
+                alert("NonNegative")
+            }
+        }
+
+        function isNegOrNonOrNan() {
+            const num = document.getElementById("num").value;
+            if (isNaN(Number(num))) {
+                alert("Not a Number");
+            } else if (Number(num) < 0) {
+                alert("negative");
+            } else {
+                alert("NonNegative");
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <main>
+        Number:
+        <input id="num" type="text" />
+        <input id="exerciseOne" onclick="isNegative()" type="button" value="Exercise One" />
+        <input id="exerciseTwo" onclick="isNegOrNon()" type="button" value="Exercise Two" />
+        <input id="exerciseThree" onclick="isNegOrNonOrNan()" type="button" value="Exercise Three" />
+        <div id="outError"></div>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: rgb(229, 183, 227);
+        }
+        
+        header {
+            background-color: rgb(229, 183, 227);
+            min-height: 2vh;
+        }
+        
+        nav {
+            flex-direction: row;
+            background-color: rgb(229, 174, 183);
+            display: flex;
+        }
+        
+        main {
+            background-color: pink;
+            flex: 1;
+            min-height: 84vh;
+        }
+        
+        footer {
+            background-color: rgb(229, 183, 227);
+            min-height: 10vh;
+            text-align: center;
+        }
+        
+        h6 {
+            margin: 0px;
+        }
+        
+        button {
+            background: rgb(226, 196, 255);
+            width: 100px;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            color: rgb(255, 255, 255);
+            background: rgb(188, 122, 250);
+        }
+        
+        .higher {
+            color: red;
+        }
+        
+        .lower {
+            color: blue;
+        }
+        
+        .success {
+            color: lime;
+        }
+        
+        .badInput {
+            color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        let answer = Math.floor(Math.random() * 100) + 1;
+
+        function Guess() {
+            let guessBox = document.getElementById("GuessBox");
+            let guess = parseInt(guessBox.value);
+
+            if (isNaN(guess) || guessBox.value.trim() === "") {
+                document.getElementById("badInput").style.display = "block";
+                return;
+            } else {
+                document.getElementById("badInput").style.display = "none";
+            }
+
+            let cc = document.createElement("span");
+            cc.textContent = guess + ", ";
+            document.getElementById("PrevGuesses").appendChild(cc);
+
+            if (guess === answer) {
+                document.getElementById("Number").textContent = "You Got It !!";
+                document.getElementById("Number").classList.add("success");
+                cc.classList.add("success");
+            } else if (guess > answer) {
+                document.getElementById("Number").textContent = "Lower";
+                document.getElementById("Number").classList.add("lower");
+                cc.classList.add("lower");
+            } else {
+                document.getElementById("Number").textContent = "Higher";
+                document.getElementById("Number").classList.add("higher");
+                cc.classList.add("higher");
+            }
+        }
+
+        function isNumber(evt) {
+            evt = evt || window.event;
+            let charCode = evt.which || evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+        function Reset() {
+            answer = Math.floor(Math.random() * 100) + 1;
+            document.getElementById("Number").textContent = "";
+            document.getElementById("Number").className = "";
+            document.getElementById("PrevGuesses").textContent = "Previous Guesses: ";
+            document.getElementById("GuessBox").value = "";
+            document.getElementById("badInput").style.display = "none";
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <center>
+            <h1>Higher or Lower</h1>
+        </center>
+    </header>
+
+    <nav></nav>
+
+    <main>
+        <center>
+            Guess a Number 1-100
+            <br>
+            <input id="GuessBox" onkeypress="return isNumber(event)">
+            <br>
+            <button onclick="Guess()" id="GuessButton">Guess</button>
+            <button onclick="Reset()" id="ResetButton">Reset</button>
+            <br>
+            <span id="Number"></span>
+            <br>
+            <span id="badInput" class="badInput">Guess must be a number</span>
+            <br>
+            <p id="PrevGuesses">Previous Guesses: </p>
+            <br>
+
+        </center>
+    </main>
+
+    <footer>
+        <center>
+            <h6>Made by Grayson Renner</h6>
+            <h6>Shakopee High School</h6>
+            <h6>100 17th Ave W, Shakopee, MN 55379</h6>
+            <h6>Last updated May 3rd 2024</h6>
+        </center>
+    </footer>
+
+</body>
+
+</html>
