@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Airplane List</title>
     <link rel="icon" href="Version 1/Images/favicon.ico" />
     <script src="https://kit.fontawesome.com/f98189272e.js" crossorigin="anonymous"></script>
@@ -14,29 +11,31 @@
         
         header {
             background-color: rgb(229, 183, 227);
-            min-height: 2vh;
         }
         
         nav {
             flex-direction: row;
             background-color: rgb(229, 174, 183);
             display: flex;
+            border: black solid 1px;
         }
         
         main {
+            display: flex;
             background-color: pink;
-            flex: 1;
-            min-height: 84vh;
         }
         
         footer {
             background-color: rgb(229, 183, 227);
-            min-height: 10vh;
             text-align: center;
         }
         
         h6 {
             margin: 0px;
+        }
+        
+        p {
+            width: 75vw;
         }
         
         button {
@@ -52,27 +51,6 @@
         
         summary {
             color: rgb(211, 61, 134);
-        }
-        
-        details>summary {
-            list-style-type: none;
-            cursor: pointer;
-        }
-        
-        details>summary::-webkit-details-marker {
-            display: none;
-        }
-        
-        details>summary::before {
-            font-family: "Font Awesome 6 Free";
-            content: "\f004";
-            display: inline-block;
-        }
-        
-        details[open]>summary::before {
-            font-family: "Font Awesome 6 Free";
-            content: "\f004";
-            display: inline-block;
         }
         
         section {
@@ -103,6 +81,26 @@
         h4:hover {
             background-color: white;
         }
+        
+        center#Content {
+            flex: 1;
+            border: black solid 1px;
+        }
+        
+        aside {
+            padding: 5px;
+            background-color: rgb(229, 183, 227);
+            border: black solid 1px;
+        }
+        
+        div.Airplane {
+            border: 2px solid rgb(211, 61, 134);
+            margin: 25px;
+        }
+        
+        div.Helicopter {
+            border: 2px solid rgb(211, 61, 134);
+        }
     </style>
     <script>
     </script>
@@ -110,18 +108,519 @@
 
 <body>
     <header>
-        <h1>Master List</h1>
+        <h1>Airplane List</h1>
         <nav>
             <h4><a href="Final Website.html" class="Genre">Descriptions </a></h4>
             <h4><a href="compare.html" class="Genre">Compare </a></h4>
-            <h4><a href="Metal.html" class="Genre">Master List </a></h4>
-
+            <h4><a href="Master List.html" class="Genre">Master List </a></h4>
         </nav>
     </header>
-    <main>
-        <center>
 
-        </center>
+    <main>
+        <aside>
+            <details>
+                <summary>Manufacturers</summary>
+                <input id="CheckBoeing" type="checkbox">Boeing <br>
+                <input id="CheckAirbus" type="checkbox">Airbus <br>
+                <input id="CheckLockheed-Martin" type="checkbox">Lockheed-Martin <br>
+                <input id="CheckSukhoi" type="checkbox">Sukhoi <br>
+                <input id="CheckDassault" type="checkbox">Dassault<br>
+                <input id="CheckChengdu-Aerospace" type="checkbox">Chengdu-Aerospace <br>
+                <input id="CheckMcdonnell-Douglas" type="checkbox">McDonnell-Douglas <br>
+                <input id="CheckMesserschmitt" type="checkbox">Messerschmitt<br>
+                <input id="CheckNorth-American-Aviation" type="checkbox">North-American-Aviation <br>
+                <input id="CheckCessna" type="checkbox">Cessna <br>
+                <input id="CheckBell" type="checkbox">Bell <br>
+                <input id="CheckNorthrup-Grumman" type="checkbox">Northrup-Grumman <br>
+                <input id="CheckVought" type="checkbox">Vought <br>
+                <input id="Checkde-Havilland" type="checkbox">de-Havilland<br>
+                <input id="ChecSikorskyk" type="checkbox">Sikorsky <br>
+                <input id="CheckAntonov" type="checkbox">Antonov <br>
+            </details>
+            <details>
+                <summary>Use</summary>
+                <input id="CheckCommercial" type="checkbox">Commercial <br>
+                <input id="CheckMilitary" type="checkbox">Military <br>
+            </details>
+            <details>
+                <summary>Role</summary>
+                <input id="CheckFighter" type="checkbox">Fighter <br>
+                <input id="CheckBomber" type="checkbox">Bomber <br>
+            </details>
+            <details>
+                <summary>Type</summary>
+                <input id="CheckAirplane" type="checkbox">Airplane<br>
+                <input id="CheckHelicopter" type="checkbox">Helicopter <br>
+            </details>
+        </aside>
+
+        <script>
+            function Filter() {
+                const content = document.getElementById("Content").children;
+                const filters = {
+                    manufacturers: [],
+                    use: [],
+                    role: [],
+                    type: []
+                };
+
+                if (document.getElementById("CheckBoeing").checked) filters.manufacturers.push("Boeing");
+                if (document.getElementById("CheckAirbus").checked) filters.manufacturers.push("Airbus");
+                if (document.getElementById("CheckLockheed-Martin").checked) filters.manufacturers.push("Lockheed-Martin");
+                if (document.getElementById("CheckSukhoi").checked) filters.manufacturers.push("Sukhoi");
+                if (document.getElementById("CheckDassault").checked) filters.manufacturers.push("Dassault");
+                if (document.getElementById("CheckChengdu-Aerospace").checked) filters.manufacturers.push("Chengdu-Aerospace");
+                if (document.getElementById("CheckMcdonnell-Douglas").checked) filters.manufacturers.push("McDonnell-Douglas");
+                if (document.getElementById("CheckMesserschmitt").checked) filters.manufacturers.push("Messerschmitt");
+                if (document.getElementById("CheckNorth-American-Aviation").checked) filters.manufacturers.push("North-American-Aviation");
+                if (document.getElementById("CheckCessna").checked) filters.manufacturers.push("Cessna");
+                if (document.getElementById("CheckBell").checked) filters.manufacturers.push("Bell");
+                if (document.getElementById("CheckNorthrup-Grumman").checked) filters.manufacturers.push("Northrup-Grumman");
+                if (document.getElementById("CheckVought").checked) filters.manufacturers.push("Vought");
+                if (document.getElementById("Checkde-Havilland").checked) filters.manufacturers.push("de-Havilland");
+                if (document.getElementById("ChecSikorskyk").checked) filters.manufacturers.push("Sikorsky");
+                if (document.getElementById("CheckAntonov").checked) filters.manufacturers.push("Antonov");
+
+                if (document.getElementById("CheckCommercial").checked) filters.use.push("Commercial");
+                if (document.getElementById("CheckMilitary").checked) filters.use.push("Military");
+
+                if (document.getElementById("CheckFighter").checked) filters.role.push("Fighter");
+                if (document.getElementById("CheckBomber").checked) filters.role.push("Bomber");
+
+                if (document.getElementById("CheckAirplane").checked) filters.type.push("Airplane");
+                if (document.getElementById("CheckHelicopter").checked) filters.type.push("Helicopter");
+
+                for (let i = 0; i < content.length; i++) {
+                    let airplane = content[i];
+                    let display = true;
+
+                    if (filters.manufacturers.length > 0) {
+                        display = filters.manufacturers.some(manufacturer => airplane.classList.contains(manufacturer));
+                    }
+                    if (display && filters.use.length > 0) {
+                        display = filters.use.some(use => airplane.classList.contains(use));
+                    }
+                    if (display && filters.role.length > 0) {
+                        display = filters.role.some(role => airplane.classList.contains(role));
+                    }
+                    if (display && filters.type.length > 0) {
+                        display = filters.type.some(type => airplane.classList.contains(type));
+                    }
+
+                    airplane.style.display = display ? "" : "none";
+                }
+            }
+
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', Filter);
+            });
+        </script>
+
+        <center id="Content">
+
+            <div class="Commercial Boeing Airplane">
+
+                <h3>Boeing 747</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Boeing 747, often dubbed the "Queen of the Skies," is an iconic symbol of commercial aviation. With its distinctive humpbacked design and four powerful engines, the 747 stands as a testament to the ingenuity and innovation of aerospace engineering.
+                        This jumbo jet boasts an impressive capacity, capable of carrying hundreds of passengers across continents with ease. Its spacious interior is renowned for its comfort and luxury, offering passengers a truly unforgettable flying
+                        experience. Since its maiden flight in 1969, the Boeing 747 has become a staple in the fleets of airlines around the world, embodying the spirit of global travel and connecting people and cultures across vast distances.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Commercial Boeing Airplane">
+                <h3>Boeing 737</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Boeing 737, a stalwart of the skies, is renowned for its reliability, efficiency, and versatility. With its sleek, narrow-body design and efficient engines, the 737 is a workhorse of the commercial aviation industry. This iconic aircraft is known
+                        for its agility, making it ideal for both short-haul flights and longer journeys. The 737's spacious cabin and comfortable seating ensure a pleasant flying experience for passengers, while its advanced technology and safety features
+                        provide peace of mind for both travelers and crew. Since its introduction in 1968, the Boeing 737 has remained at the forefront of aviation, evolving through multiple iterations to meet the ever-changing demands of the global airline
+                        industry.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Commercial Airbus Airplane">
+                <h3>Airbus A320</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Airbus A320, a hallmark of modern aviation, is celebrated for its advanced technology, efficiency, and passenger comfort. As a narrow-body, twin-engine jet, the A320 is designed for short to medium-haul flights, making it a popular choice for airlines
+                        worldwide. Its state-of-the-art fly-by-wire control system offers superior handling and safety, while its fuel-efficient engines reduce operational costs and environmental impact. Inside, the A320 features a spacious cabin with
+                        wide seats and ample overhead storage, providing a comfortable and enjoyable travel experience. Since its first flight in 1987, the A320 has become a cornerstone of Airbus' fleet, continuously updated to incorporate the latest
+                        innovations in aviation technology, ensuring it remains at the cutting edge of the industry.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Commercial Airbus Airplane">
+                <h3>Airbus A380</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Airbus A380, the world's largest passenger airliner, is a marvel of modern engineering and a symbol of luxury in the skies. With its distinctive double-deck design and four powerful engines, the A380 can accommodate up to 800 passengers in a typical
+                        all-economy configuration, although most airlines opt for a more spacious layout. This superjumbo jet is renowned for its smooth and quiet flight, offering a superior travel experience. Its vast interior allows for a range of cabin
+                        configurations, including first-class suites, business class lounges, and even on-board showers and bars, depending on the airline. Introduced in 2005, the A380 has transformed long-haul travel, enabling airlines to efficiently
+                        connect major international hubs while providing an unparalleled level of comfort and service.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Lockheed-Martin Airplane Fighter">
+                <h3>F-22 Raptor</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The F-22 Raptor, a pinnacle of modern military aviation, is a stealthy, fifth-generation fighter jet developed by Lockheed Martin for the United States Air Force. Renowned for its advanced capabilities, the F-22 excels in air superiority, ground attack,
+                        electronic warfare, and signal intelligence roles. Its design incorporates stealth technology, making it nearly invisible to radar, while its twin-engine supercruise capability allows sustained supersonic flight without afterburners.
+                        The Raptor's agility is unmatched, thanks to its thrust vectoring nozzles and advanced flight controls, allowing it to outperform adversaries in dogfights. Additionally, the F-22's sophisticated avionics and sensor fusion provide
+                        pilots with unparalleled situational awareness and combat effectiveness. Since entering service in 2005, the F-22 Raptor has set the standard for air dominance, ensuring the United States maintains aerial superiority in any conflict.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Sukhoi Fighter Airplane">
+                <h3>Su-57 Felon</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Su-57 Felon, Russia's cutting-edge fifth-generation stealth fighter, represents a significant leap in aerial combat capabilities. Developed by Sukhoi, the Su-57 integrates advanced stealth technology with high maneuverability, making it a formidable
+                        competitor in modern air warfare. Its twin-engine design enables supercruise capabilities, allowing the aircraft to fly at sustained supersonic speeds without using afterburners. The Su-57 is equipped with advanced avionics, sensor
+                        fusion, and an extensive array of weaponry, including air-to-air and air-to-ground missiles, providing versatility in various combat scenarios. Its internal weapons bays enhance stealth by reducing radar cross-section, while thrust
+                        vectoring nozzles grant exceptional agility in dogfights. First introduced in 2010, the Su-57 continues to evolve, positioning itself as a key asset in Russia's pursuit of aerial dominance.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Fighter Airplane">
+                <h3>Eurofighter Typhoon</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Eurofighter Typhoon, a hallmark of European military aviation collaboration, is a highly advanced multirole fighter jet renowned for its agility, speed, and cutting-edge technology. Developed by a consortium of leading aerospace companies from the
+                        United Kingdom, Germany, Italy, and Spain, the Typhoon is designed to excel in air superiority, ground attack, and reconnaissance missions. Its delta wing and canard configuration provide exceptional maneuverability and aerodynamic
+                        efficiency, while its twin-engine design allows for impressive speed and power. The Typhoon is equipped with state-of-the-art avionics, including a sophisticated radar system, advanced electronic warfare capabilities, and an integrated
+                        sensor suite that ensures superior situational awareness and combat effectiveness. Entering service in 2003, the Eurofighter Typhoon continues to be a cornerstone of many European air forces, combining versatility and advanced
+                        technology to meet a wide range of modern military challenges.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Fighter Airplane Dassault">
+                <h3>Dassault Rafale</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Dassault Rafale, a versatile and highly advanced multirole fighter aircraft, epitomizes French aerospace engineering excellence. Developed by Dassault Aviation, the Rafale is designed to perform a wide array of combat missions, including air superiority,
+                        ground attack, reconnaissance, and nuclear strike. Its design features a delta wing and canard configuration, providing exceptional agility and aerodynamic performance. Powered by twin engines, the Rafale can achieve impressive
+                        speeds and operate effectively in various combat scenarios. The aircraft is equipped with cutting-edge avionics, including the RBE2 AESA radar, advanced electronic warfare systems, and a highly integrated sensor suite, ensuring
+                        superior situational awareness and combat effectiveness. Since its introduction in 2001, the Dassault Rafale has been lauded for its adaptability, precision, and reliability, serving as a key asset in the French Air and Space Force
+                        and other international operators.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Fighter Airplane Chengdu-Aerospace">
+                <h3>J-20 Mighty Dragon</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The J-20 Mighty Dragon, China's premier fifth-generation stealth fighter, represents a significant milestone in the nation's military aviation capabilities. Developed by the Chengdu Aerospace Corporation, the J-20 is designed for air superiority, long-range
+                        strike missions, and ground attack roles. Its sleek, angular design incorporates advanced stealth features to minimize radar cross-section, enhancing its survivability in contested airspace. Powered by twin engines, the J-20 boasts
+                        impressive speed and agility, complemented by supercruise capabilities that allow sustained supersonic flight without afterburners. The aircraft is equipped with sophisticated avionics, sensor fusion technology, and a comprehensive
+                        array of weaponry housed in internal bays to maintain stealth. Since its introduction in 2017, the J-20 Mighty Dragon has become a cornerstone of the People's Liberation Army Air Force, symbolizing China's growing prowess in advanced
+                        military technology and its strategic focus on achieving aerial dominance.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Fighter Airplane Lockheed-Martin">
+                <h3>F-35 Lightning II</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The F-35 Lightning II, developed by Lockheed Martin, is a state-of-the-art fifth-generation multirole fighter jet designed to perform a wide array of missions for the United States and its allies. The F-35 integrates advanced stealth technology, making
+                        it nearly invisible to enemy radar, and features a versatile design that comes in three variants: the F-35A for conventional takeoff and landing, the F-35B for short takeoff and vertical landing, and the F-35C for carrier-based
+                        operations. Powered by a single engine, the F-35 boasts exceptional speed and agility, along with a robust suite of advanced avionics, sensor fusion capabilities, and electronic warfare systems. Its advanced cockpit design and
+                        helmet-mounted display provide pilots with unparalleled situational awareness and precision targeting. First introduced in 2015, the F-35 Lightning II has rapidly become a key asset in modern air forces, offering a combination
+                        of stealth, versatility, and cutting-edge technology that sets a new standard for combat aircraft.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Fighter Airplane Lockheed-Martin">
+                <h3>Lockheed Martin F-16 Fighting Falcon</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Lockheed Martin F-16 Fighting Falcon, an iconic symbol of aerial combat excellence, is a versatile and highly maneuverable multirole fighter aircraft. Developed in the 1970s, the F-16 has been continuously upgraded and remains in service with numerous
+                        air forces around the world. Its sleek design, characterized by a single-engine, delta-wing configuration, allows for exceptional agility and performance in both air-to-air and air-to-ground missions. The F-16 is equipped with
+                        advanced avionics, including a radar system, heads-up display, and electronic warfare suite, providing pilots with superior situational awareness and combat capabilities. With its proven track record in combat operations and adaptability
+                        to various mission profiles, the F-16 Fighting Falcon continues to be a cornerstone of modern air forces, showcasing the enduring legacy of Lockheed Martin's engineering expertise.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Fighter Airplane McDonnell-Douglas">
+                <h3>McDonnell Douglas F-4 Phantom II</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The McDonnell Douglas F-4 Phantom II stands as an iconic symbol of military aviation history, renowned for its unparalleled service record and versatile capabilities. Developed in the 1950s, the F-4 Phantom II served as a dominant fighter jet for the
+                        United States and numerous other nations for several decades. With its distinctive twin-engine design and large airframe, the Phantom II was capable of delivering a formidable payload of air-to-air missiles, bombs, and other ordnance.
+                        It played crucial roles in various missions, including air superiority, ground attack, reconnaissance, and electronic warfare. Despite lacking modern stealth technology, the F-4's speed, agility, and robust construction made it
+                        a formidable adversary in combat. Its versatility and adaptability enabled it to continue serving in various roles long after its initial introduction, solidifying its place as one of the most legendary aircraft in aviation history.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Fighter Airplane Messerschmitt">
+                <h3>Messerschmitt Bf 109</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Messerschmitt Bf 109, a legendary symbol of German air power during World War II, is widely regarded as one of the most iconic and successful fighter aircraft of its era. Developed by Willy Messerschmitt and his team, the Bf 109 played a pivotal role
+                        in shaping the course of aerial warfare during the conflict. Featuring a sleek and streamlined design, the Bf 109 was powered by a powerful Daimler-Benz engine, providing exceptional speed and agility. Armed with machine guns and
+                        later cannon armament, it was a deadly adversary in dogfights. Throughout its operational history, the Bf 109 underwent numerous modifications and upgrades, adapting to changing combat conditions and technological advancements.
+                        It served with distinction on all fronts of the war and was flown by some of the Luftwaffe's most skilled pilots. Despite being eventually outmatched by more advanced Allied aircraft, the Bf 109's legacy endures as a symbol of
+                        German engineering prowess and aerial combat excellence.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Fighter North-American-Aviation Airplane">
+                <h3>North American P-51 Mustang</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The North American P-51 Mustang, an iconic symbol of American aviation during World War II, is celebrated for its legendary role in turning the tide of aerial warfare in favor of the Allied forces. Designed and built by North American Aviation, the P-51
+                        Mustang was a long-range, single-seat fighter aircraft renowned for its exceptional speed, range, and maneuverability. Powered by the powerful Rolls-Royce Merlin engine, the Mustang possessed unparalleled performance at high altitudes,
+                        making it a formidable adversary for Axis fighters. Armed with machine guns and later equipped with bombs and rockets, the P-51 played a pivotal role in escorting bombers deep into enemy territory and engaging enemy aircraft in
+                        dogfights over Europe and the Pacific. Its distinctive design, featuring a sleek airframe and distinctive bubble canopy, remains instantly recognizable to this day. The P-51 Mustang's legacy as a symbol of American air power and
+                        its crucial contribution to Allied victory in World War II solidify its place in aviation history.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Bomber Airplane Boeing">
+                <h3>Boeing B-29 Superfortress</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Boeing B-29 Superfortress, a true marvel of engineering during World War II, stands as a testament to American ingenuity and technological prowess. Developed by Boeing, the B-29 was a strategic bomber that played a pivotal role in the Pacific theater,
+                        particularly in the bombing campaign against Japan. It was the first bomber to feature pressurized crew compartments and remote-controlled defensive gun turrets, innovations that greatly enhanced crew comfort and survivability.
+                        Powered by four powerful Wright R-3350 engines, the B-29 boasted an impressive range and payload capacity, allowing it to conduct long-range bombing missions deep into enemy territory. Perhaps most famously, the B-29 Enola Gay
+                        dropped the atomic bomb "Little Boy" over Hiroshima, forever changing the course of history. The B-29 Superfortress represents a key chapter in aviation history, demonstrating the capabilities of strategic bombing and the significant
+                        role air power played in shaping the outcome of World War II.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Military Bomber Airplane Sukhoi">
+                <h3>Sukhoi Su-25 Frogfoot</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Sukhoi Su-25 Frogfoot, a rugged and versatile ground-attack aircraft, has earned a reputation as one of the most effective close air support platforms in the world. Developed by the Sukhoi Design Bureau in the Soviet Union, the Su-25 is designed to
+                        operate in harsh battlefield conditions and deliver precision strikes against enemy ground targets. Its robust airframe, powered by twin engines, provides exceptional survivability, while its armored cockpit and titanium armor
+                        plating protect the pilot from enemy fire. Armed with a variety of weapons, including bombs, rockets, and missiles, the Su-25 is capable of engaging armored vehicles, fortifications, and other ground targets with remarkable accuracy.
+                        Since its introduction in the 1980s, the Su-25 has seen extensive combat service in various conflicts around the world, earning praise for its durability, firepower, and reliability in fulfilling its role as a dedicated close air
+                        support aircraft.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Boeing Helicopter Military">
+                <h3>Boeing AH-64 Apache</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Boeing AH-64 Apache, a formidable attack helicopter, is renowned for its ability to dominate the battlefield with unmatched firepower, agility, and survivability. Developed by Boeing Defense, Space & Security, the Apache is specifically designed for
+                        close air support, armed reconnaissance, and anti-tank warfare. Its sleek, tandem-seat design incorporates advanced avionics, sensor systems, and weapons, including a 30mm M230 chain gun, Hellfire missiles, and Hydra rockets. The
+                        Apache's combination of precision weapons and sophisticated targeting systems enables it to engage enemy targets with pinpoint accuracy, day or night, and in all weather conditions. Furthermore, its robust airframe and advanced
+                        defensive measures provide exceptional survivability against enemy threats. Since its introduction in the 1980s, the AH-64 Apache has been a mainstay of numerous armed forces worldwide, serving as a versatile and indispensable
+                        asset in both conventional and asymmetrical warfare scenarios.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Cessna Commerical Airplane">
+                <h3>Cessna 172 Skyhawk</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Cessna 172 Skyhawk, a timeless classic in the realm of general aviation, is renowned for its reliability, simplicity, and ease of operation. Manufactured by Cessna Aircraft Company, the Skyhawk has been in continuous production since 1956, making
+                        it one of the most popular and enduring aircraft models in history. With its high-wing design, spacious cabin, and forgiving flight characteristics, the Cessna 172 is an ideal platform for flight training, recreational flying,
+                        and short-distance travel. Powered by a single piston engine, the Skyhawk is capable of cruising at moderate speeds while offering excellent fuel efficiency and range. Its intuitive cockpit layout and straightforward controls make
+                        it a favorite among pilots of all skill levels, from student aviators to seasoned professionals. Over the years, the Cessna 172 Skyhawk has earned a reputation for its unmatched versatility, reliability, and safety, cementing its
+                        status as an aviation icon.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Boeing Commercial Airplane">
+                <h3>Boeing 787 Dreamliner</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Boeing 787 Dreamliner, a marvel of modern commercial aviation, represents a revolution in air travel with its cutting-edge technology, passenger comfort, and fuel efficiency. Manufactured by Boeing Commercial Airplanes, the Dreamliner features a composite
+                        fuselage and advanced aerodynamics, reducing weight and fuel consumption while enhancing performance. Its spacious cabin, large windows, and innovative lighting systems create a comfortable and inviting atmosphere for passengers,
+                        offering an unparalleled travel experience. Equipped with state-of-the-art avionics, including fly-by-wire controls and advanced navigation systems, the 787 ensures smooth and efficient operations for airlines worldwide. Additionally,
+                        its long range capabilities enable direct, non-stop flights between distant cities, opening up new routes and opportunities for global travel. Since its introduction in 2011, the Boeing 787 Dreamliner has set new standards for
+                        commercial aircraft, embodying the future of air travel with its blend of efficiency, comfort, and innovation.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Lockheed-Martin Military Airplane">
+                <h3>Lockheed C-130 Hercules</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Lockheed C-130 Hercules, an enduring workhorse of military and humanitarian aviation, is renowned for its ruggedness, versatility, and reliability. Developed by Lockheed Martin, the Hercules has served as a vital transport aircraft since its first
+                        flight in 1954. With its distinctive high-wing design and turboprop engines, the C-130 is capable of operating from rough airstrips and unprepared terrain, making it ideal for a wide range of missions, including troop and cargo
+                        transport, aerial refueling, medical evacuation, and humanitarian relief operations. Its spacious cargo hold can accommodate a variety of payloads, from vehicles and supplies to paratroopers and humanitarian aid. Equipped with
+                        advanced avionics and navigation systems, the C-130 Hercules has proven itself time and again in military conflicts, disaster relief efforts, and peacekeeping missions around the world. Its legendary reputation for reliability
+                        and versatility has earned it the nickname "Hercules" and made it a cornerstone of military airlift operations for over half a century.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Bell Helicopter Military">
+                <h3>Bell UH-1 Iroquois (Huey)</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Bell UH-1 Iroquois, commonly known as the Huey, stands as an iconic symbol of military helicopter operations, renowned for its versatility, reliability, and adaptability. Developed by Bell Helicopter in the 1950s, the Huey played a crucial role in
+                        military operations during the Vietnam War and beyond. Its distinctive silhouette, with a single turboshaft engine and iconic "banana-shaped" main rotor blades, became synonymous with helicopter operations in the jungles of Southeast
+                        Asia. The Huey served a multitude of roles, including troop transport, medical evacuation, close air support, and search and rescue missions. Its rugged construction and powerful engine allowed it to operate in hot and high conditions,
+                        making it well-suited for the demanding environments of combat zones. Additionally, its spacious cabin and large side doors facilitated rapid loading and unloading of troops and cargo. Over the years, the Huey has remained in service
+                        with various military forces and has undergone numerous upgrades to maintain its operational relevance. Its legacy as a versatile and reliable workhorse of military aviation continues to endure, making it one of the most iconic
+                        helicopters in history.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Northrup-Grumman Military Airplane Fighter">
+                <h3>Grumman F-14 Tomcat</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Grumman F-14 Tomcat, an iconic symbol of American naval aviation, is renowned for its speed, power, and air superiority capabilities. Developed by Grumman Aerospace in the 1960s, the Tomcat was designed to serve as a carrier-based interceptor and
+                        air superiority fighter for the United States Navy. With its distinctive variable-sweep wings and twin-engine configuration, the F-14 boasted exceptional performance, enabling it to engage enemy aircraft at long ranges and high
+                        speeds. Armed with a combination of missiles, including the AIM-54 Phoenix, AIM-7 Sparrow, and AIM-9 Sidewinder, the Tomcat was a formidable adversary in air-to-air combat. Its sophisticated radar system and advanced avionics provided
+                        pilots with superior situational awareness and targeting capabilities. Beyond its role as an interceptor, the F-14 also had the capability to conduct precision strike missions and reconnaissance operations. Despite its retirement
+                        from active service in 2006, the F-14 Tomcat remains a beloved symbol of American military aviation, immortalized in popular culture and remembered for its legendary performance and unmistakable presence in the skies.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Vought Military Fighter Airplane">
+                <h3>Vought F4U Corsair</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Vought F4U Corsair, a legendary fighter aircraft of World War II fame, is celebrated for its distinctive design, exceptional performance, and combat effectiveness. Developed by Vought-Sikorsky Aircraft, the Corsair became one of the most iconic and
+                        recognizable aircraft of the era. With its inverted gull-wing design and powerful Pratt & Whitney radial engine, the Corsair boasted impressive speed, range, and firepower. Armed with six .50-caliber machine guns and later variants
+                        equipped with rockets and bombs, the F4U excelled in both air-to-air combat and ground attack missions. Its rugged construction and superb handling characteristics made it a favorite among pilots, earning it the nickname "Whistling
+                        Death" by Japanese forces. The Corsair served with distinction in the Pacific theater, where it achieved notable success against Japanese aircraft. Beyond World War II, the F4U continued to serve in various conflicts, including
+                        the Korean War, where it proved its enduring capability as a close air support and reconnaissance platform. The Vought F4U Corsair's legacy as one of the most iconic and revered fighter aircraft in history is immortalized in aviation
+                        history and popular culture alike.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Lockheed-Martin Fighter Military Airplane">
+                <h3>Lockheed P-38 Lightning</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Lockheed P-38 Lightning, an iconic twin-engine fighter aircraft from World War II, is celebrated for its distinctive design, exceptional performance, and versatility. Developed by Lockheed Corporation, the P-38 boasted a unique twin-boom fuselage,
+                        central nacelle, and tricycle landing gear configuration. Powered by two powerful Allison V-1710 engines, the Lightning possessed impressive speed, range, and altitude capabilities, making it well-suited for a variety of combat
+                        roles. Armed with a formidable array of machine guns, cannons, and bombs, the P-38 excelled in both air-to-air combat and ground attack missions. Its innovative design also made it an effective long-range escort fighter, providing
+                        protection to bomber formations during daylight raids over Europe and the Pacific. The Lightning's exceptional performance and handling characteristics made it a favorite among pilots, earning it a reputation for reliability and
+                        survivability in combat. Beyond its wartime service, the P-38 continued to serve in various roles, including reconnaissance and air racing, cementing its status as one of the most iconic and versatile fighter aircraft of its era.
+                    </p>
+                </details>
+            </div>
+
+            <div class="De-Havilland Airplane Military">
+                <h3>de Havilland Canada DHC-2 Beaver</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The de Havilland Canada DHC-2 Beaver, an enduring symbol of rugged utility and versatility in aviation, is celebrated for its exceptional performance and reliability in challenging environments. Developed by de Havilland Canada, the Beaver first took
+                        flight in 1947 and quickly earned a reputation as one of the most capable bush planes ever built. With its rugged construction, high-lift wing design, and powerful Pratt & Whitney R-985 radial engine, the Beaver was ideally suited
+                        for a wide range of missions, including bush flying, utility transport, search and rescue, and aerial reconnaissance. Its short takeoff and landing capabilities, coupled with its ability to operate from unprepared airstrips and
+                        waterways, made it indispensable in remote and inhospitable regions around the world. The Beaver's spacious cabin could accommodate passengers, cargo, or specialized equipment, while its versatility and reliability endeared it
+                        to pilots and operators in both military and civilian roles. Despite being out of production since 1967, the de Havilland Canada DHC-2 Beaver continues to serve faithfully in various capacities, beloved by aviators for its ruggedness,
+                        performance, and timeless design.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Sikorsky Helicopter Military">
+                <h3>Sikorsky UH-60 Black Hawk</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Sikorsky UH-60 Black Hawk, an iconic symbol of military aviation, is celebrated for its exceptional versatility, reliability, and mission adaptability. Developed by Sikorsky Aircraft Corporation in the late 1970s, the Black Hawk quickly became the
+                        backbone of helicopter operations for the United States Army and numerous other military forces around the world. With its rugged construction, powerful engines, and advanced rotor system, the UH-60 is capable of performing a wide
+                        range of missions, including troop transport, medical evacuation, search and rescue, disaster relief, and special operations support. Its spacious cabin accommodates up to 11 fully equipped troops or stretchers, while its external
+                        cargo hook enables the transport of heavy equipment and supplies. The Black Hawk's advanced avionics, including night vision capabilities and integrated defensive systems, provide pilots with superior situational awareness and
+                        survivability in combat environments. Since its introduction, the Sikorsky UH-60 Black Hawk has demonstrated its unmatched capability and reliability in countless military operations and humanitarian missions, earning it a reputation
+                        as one of the most versatile and indispensable helicopters in the world.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Helicopter Military">
+                <h3>Eurocopter EC135</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Eurocopter EC135, a versatile and reliable twin-engine helicopter, is renowned for its exceptional performance, safety features, and adaptability to various missions. Developed by Eurocopter, now Airbus Helicopters, the EC135 is widely used in both
+                        civil and military applications, including emergency medical services, law enforcement, corporate transport, and military training. With its spacious and ergonomic cabin, the EC135 offers exceptional comfort for passengers and
+                        crew alike, while its advanced avionics and navigation systems ensure precise and efficient flight operations. Powered by two Turbomeca Arrius engines, the EC135 delivers impressive speed, range, and maneuverability, making it
+                        well-suited for a wide range of missions in diverse operating environments. Its high reliability, low maintenance costs, and excellent safety record have made it a preferred choice for operators worldwide. Since its introduction
+                        in the mid-1990s, the Eurocopter EC135 has established itself as a benchmark in the light twin-engine helicopter category, setting the standard for performance, versatility, and mission capability.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Antonov Commercial Military Airplane">
+                <h3>Antonov An-225 Mriya</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Antonov An-225 Mriya, a colossal aircraft often dubbed the "world's largest airplane," is a remarkable feat of engineering and aviation prowess. Developed by the Antonov Design Bureau in Ukraine, the An-225 was originally designed to transport the
+                        Soviet Buran space shuttle. With its immense size, six turbofan engines, and unique twin-tail configuration, the Mriya (which means "dream" in Ukrainian) is capable of carrying outsized and oversized cargo payloads weighing up
+                        to 250 tons over long distances. Its massive cargo hold, measuring over 43 meters in length, makes it ideal for transporting heavy and bulky items such as industrial machinery, generators, and aerospace components. The An-225's
+                        remarkable capabilities have made it a sought-after asset for transporting humanitarian aid and disaster relief supplies to regions in need. While only one An-225 was ever completed, its awe-inspiring presence and unparalleled
+                        cargo capacity have earned it a place in aviation history as a true marvel of modern aerospace engineering.
+                    </p>
+                </details>
+            </div>
+
+            <div class="Lockheed-Martin Airplane Military">
+                <h3>Lockheed SR-71 Blackbird</h3>
+                <details>
+                    <summary></summary>
+                    <p>
+                        The Lockheed SR-71 Blackbird, a legendary reconnaissance aircraft, remains an icon of American aviation history, renowned for its unmatched speed, altitude, and stealth capabilities. Developed by Lockheed's Skunk Works division in the 1960s, the Blackbird
+                        was designed to operate at speeds exceeding Mach 3 and altitudes of over 85,000 feet, allowing it to fly faster and higher than any other aircraft of its time. Its sleek, titanium airframe and unique shape minimized radar cross-section,
+                        making it exceptionally difficult to detect and intercept. Powered by twin Pratt & Whitney J58 turbojet engines, the SR-71 could cover vast distances in a remarkably short period, conducting strategic reconnaissance missions over
+                        hostile territory with impunity. Equipped with advanced sensors and cameras, the Blackbird provided invaluable intelligence to military commanders during the Cold War and beyond. Despite its retirement in 1999, the SR-71 Blackbird
+                        remains an enduring symbol of American technological innovation and aerospace excellence, representing the pinnacle of manned reconnaissance aircraft design.
+                    </p>
+                </details>
+            </div>
+
+            <br>
     </main>
     <footer>
         <center>
