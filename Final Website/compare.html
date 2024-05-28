@@ -90,6 +90,37 @@
             border: black solid 1px;
         }
     </style>
+    <script>
+        function handleSelection() {
+            const selectedAirplanes = document.querySelectorAll('.airplane-checkbox:checked');
+            const comparisonDetails = document.getElementById('comparison-details');
+            comparisonDetails.innerHTML = '';
+
+
+            if (selectedAirplanes.length >= 2) {
+                const uncheckedAirplanes = document.querySelectorAll('.airplane-checkbox:not(:checked)');
+                uncheckedAirplanes.forEach(checkbox => {
+                    checkbox.disabled = true;
+                });
+            } else {
+                const allCheckboxes = document.querySelectorAll('.airplane-checkbox');
+                allCheckboxes.forEach(checkbox => {
+                    checkbox.disabled = false;
+                });
+            }
+
+
+            if (selectedAirplanes.length === 2) {
+                selectedAirplanes.forEach(airplane => {
+                    const details = airplane.parentElement.querySelector('.airplane-details').innerHTML;
+                    const airplaneDetailsDiv = document.createElement('div');
+                    airplaneDetailsDiv.classList.add('comparison-details');
+                    airplaneDetailsDiv.innerHTML = details;
+                    comparisonDetails.appendChild(airplaneDetailsDiv);
+                });
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -672,37 +703,6 @@
             <h6>Last updated May 3rd 2024</h6>
         </center>
     </footer>
-    <script>
-        function handleSelection() {
-            const selectedAirplanes = document.querySelectorAll('.airplane-checkbox:checked');
-            const comparisonDetails = document.getElementById('comparison-details');
-            comparisonDetails.innerHTML = '';
-
-
-            if (selectedAirplanes.length >= 2) {
-                const uncheckedAirplanes = document.querySelectorAll('.airplane-checkbox:not(:checked)');
-                uncheckedAirplanes.forEach(checkbox => {
-                    checkbox.disabled = true;
-                });
-            } else {
-                const allCheckboxes = document.querySelectorAll('.airplane-checkbox');
-                allCheckboxes.forEach(checkbox => {
-                    checkbox.disabled = false;
-                });
-            }
-
-
-            if (selectedAirplanes.length === 2) {
-                selectedAirplanes.forEach(airplane => {
-                    const details = airplane.parentElement.querySelector('.airplane-details').innerHTML;
-                    const airplaneDetailsDiv = document.createElement('div');
-                    airplaneDetailsDiv.classList.add('comparison-details');
-                    airplaneDetailsDiv.innerHTML = details;
-                    comparisonDetails.appendChild(airplaneDetailsDiv);
-                });
-            }
-        }
-    </script>
 </body>
 
 </html>
