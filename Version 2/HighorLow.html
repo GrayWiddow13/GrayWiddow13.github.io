@@ -68,6 +68,7 @@
         function Guess() {
             let guessBox = document.getElementById("GuessBox");
             let guess = parseInt(guessBox.value);
+            document.getElementById("GuessBox").value = ""
 
             if (isNaN(guess) || guessBox.value.trim() === "") {
                 document.getElementById("badInput").style.display = "block";
