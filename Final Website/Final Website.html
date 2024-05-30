@@ -111,6 +111,10 @@
         }
     </style>
     <script>
+        function playMusic() {
+            var music = new Audio('Plane.mp3');
+            music.play();
+        }
     </script>
 </head>
 
@@ -130,7 +134,7 @@
             <!-- Boeing 747 -->
             <br>
             <section>
-                <img src="FImages/747.jpeg" height="200" alt="B747">
+                <img src="FImages/747.jpeg" onclick="playMusic()" height="200" alt="B747">
                 <h3>Boeing 747</h3>
                 <p>One of the most recognizable and largest commercial aircraft in the world.</p>
                 <details>
@@ -148,7 +152,7 @@
 
             <!-- Boeing 737 -->
             <section>
-                <img src="FImages/737.jpeg" height="200" alt="B737">
+                <img src="FImages/737.jpeg" onclick="playMusic()" height="200" alt="B737">
                 <h3>Boeing 737</h3>
                 <p>A popular short to medium-range twinjet narrow-body airliner.</p>
                 <details>
@@ -167,7 +171,7 @@
             <!-- Airbus A320 -->
 
             <section>
-                <img src="FImages/A320.jpeg" height="200" alt="A320">
+                <img src="FImages/A320.jpeg" onclick="playMusic()" height="200" alt="A320">
                 <h3>Airbus A320</h3>
                 <p>A short to medium-range narrow-body commercial passenger jet.</p>
                 <details>
