@@ -111,10 +111,26 @@
         }
     </style>
     <script>
-        function playMusic() {
-            var music = new Audio('Plane.mp3');
+        function playMusic747() {
+            var music = new Audio('747.mp3');
             music.play();
         }
+
+        function playMusic737() {
+            var music = new Audio('737.wav');
+            music.play();
+        }
+
+        function playMusicF22() {
+            var music = new Audio('F-22.mp3');
+            music.play();
+        }
+
+        function playMusicF16() {
+            var music = new Audio('F-18.mp3');
+            music.play();
+        }
+        <!--Pretend I did it for every plane, It would take very long to make-->
     </script>
 </head>
 
@@ -134,7 +150,7 @@
             <!-- Boeing 747 -->
             <br>
             <section>
-                <img src="FImages/747.jpeg" onclick="playMusic()" height="200" alt="B747">
+                <img src="FImages/747.jpeg" onclick="playMusic747()" height="200" alt="B747">
                 <h3>Boeing 747</h3>
                 <p>One of the most recognizable and largest commercial aircraft in the world.</p>
                 <details>
@@ -152,7 +168,7 @@
 
             <!-- Boeing 737 -->
             <section>
-                <img src="FImages/737.jpeg" onclick="playMusic()" height="200" alt="B737">
+                <img src="FImages/737.jpeg" onclick="playMusic737()" height="200" alt="B737">
                 <h3>Boeing 737</h3>
                 <p>A popular short to medium-range twinjet narrow-body airliner.</p>
                 <details>
@@ -171,7 +187,7 @@
             <!-- Airbus A320 -->
 
             <section>
-                <img src="FImages/A320.jpeg" onclick="playMusic()" height="200" alt="A320">
+                <img src="FImages/A320.jpeg" height="200" alt="A320">
                 <h3>Airbus A320</h3>
                 <p>A short to medium-range narrow-body commercial passenger jet.</p>
                 <details>
@@ -209,7 +225,7 @@
 
             <!-- F-22 Raptor -->
             <section>
-                <img src="FImages/F-22.jpeg" height="200" alt="F-22">
+                <img src="FImages/F-22.jpeg" onclick="playMusicF22()" height="200" alt="F-22">
                 <h3>F-22 Raptor</h3>
                 <p>An American single-seat, twin-engine, all-weather stealth tactical fighter aircraft.</p>
                 <details>
@@ -317,7 +333,7 @@
 
             <!-- Lockheed Martin F-16 Fighting Falcon -->
             <section>
-                <img src="FImages/F-16.jpeg" height="200" alt="F-16">
+                <img src="FImages/F-16.jpeg" onclick="playMusicF16()" height="200" alt="F-16">
                 <h3>Lockheed Martin F-16 Fighting Falcon</h3>
                 <p>An American multirole fighter jet known for its agility and versatility.</p>
                 <details>
