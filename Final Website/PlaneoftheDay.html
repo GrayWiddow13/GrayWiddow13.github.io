@@ -109,30 +109,30 @@
         img {
             border: black solid 1.2px;
         }
+        
+        input::-webkit-input-placeholder {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        
+        .airplane label {
+            font-weight: bold;
+        }
+        
+        .airplane-details {
+            border: 2px solid #000000;
+            padding: 10px;
+        }
+        
+        .visible {
+            display: block;
+        }
+        
+        .invisible {
+            display: none;
+        }
     </style>
-    <script>
-        function playMusic747() {
-            var music = new Audio('747.mp3');
-            music.play();
-        }
-
-        function playMusic737() {
-            var music = new Audio('737.wav');
-            music.play();
-        }
-
-        function playMusicF22() {
-            var music = new Audio('F-22.mp3');
-            music.play();
-        }
-
-        function playMusicF16() {
-            var music = new Audio('F-18.mp3');
-            music.play();
-        }
-
-        <!--Pretend I did it for every plane, It would take very long to make-->
-    </script>
 </head>
 
 <body>
@@ -147,16 +147,42 @@
         </nav>
     </header>
     <main>
-        <center>
+        <script>
+            var Airplanes = document.getElementsByClassName('airplane-details');
 
-            <!-- Boeing 747 -->
-            <br>
-            <section>
-                <img src="FImages/747.jpeg" onclick="playMusic747()" height="200" alt="B747">
+            function ShowRand() {
+
+                for (var i = 0; i < Airplanes.length; i++) {
+
+                    if (Airplanes[i].classList.contains('visible')) {
+                        var skip = i;
+                        Airplanes[i].classList.remove('visible');
+                        Airplanes[i].classList.add('invisible');
+                    }
+                }
+
+                var randomNumber = skip;
+
+                while (randomNumber === skip) {
+                    randomNumber = Math.floor(Math.random() * Airplanes.length);
+                }
+
+                Airplanes[randomNumber].classList.remove('invisible');
+                Airplanes[randomNumber].classList.add('visible');
+            }
+
+            setInterval(ShowRand, 1000);
+        </script>
+
+        <!-- Boeing 747 -->
+        <div class="airplane">
+
+
+            <div class="airplane-details invisible">
                 <h3>Boeing 747</h3>
                 <p>One of the most recognizable and largest commercial aircraft in the world.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 614 mph (988 km/h)</p>
                     <p>Armament - None (commercial aircraft)</p>
                     <p>First Made - 1969</p>
@@ -164,17 +190,18 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
+
+        <!-- Boeing 737 -->
+        <div class="airplane">
 
 
-            <!-- Boeing 737 -->
-            <section>
-                <img src="FImages/737.jpeg" onclick="playMusic737()" height="200" alt="B737">
+            <div class="airplane-details invisible">
                 <h3>Boeing 737</h3>
                 <p>A popular short to medium-range twinjet narrow-body airliner.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 544 mph (876 km/h)</p>
                     <p>Armament - None (commercial aircraft)</p>
                     <p>First Made - 1968</p>
@@ -182,18 +209,18 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
+
+        <!-- Airbus A320 -->
+        <div class="airplane">
 
 
-            <!-- Airbus A320 -->
-
-            <section>
-                <img src="FImages/A320.jpeg" height="200" alt="A320">
+            <div class="airplane-details invisible">
                 <h3>Airbus A320</h3>
                 <p>A short to medium-range narrow-body commercial passenger jet.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 541 mph (870 km/h)</p>
                     <p>Armament - None (commercial aircraft)</p>
                     <p>First Made - 1986</p>
@@ -201,19 +228,18 @@
                     <p>Country - European Union</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
+
+        <!-- Airbus A380 -->
+        <div class="airplane">
 
 
-
-
-            <!-- Airbus A380 -->
-            <section>
-                <img src="FImages/A380.jpeg" height="200" alt="A380">
+            <div class="airplane-details invisible">
                 <h3>Airbus A380</h3>
                 <p>The world's largest passenger airliner.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 634 mph (1,020 km/h)</p>
                     <p>Armament - None (commercial aircraft)</p>
                     <p>First Made - 2005</p>
@@ -221,17 +247,17 @@
                     <p>Country - European Union</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- F-22 Raptor -->
+        <div class="airplane">
 
-            <!-- F-22 Raptor -->
-            <section>
-                <img src="FImages/F-22.jpeg" onclick="playMusicF22()" height="200" alt="F-22">
+            <div class="airplane-details invisible">
                 <h3>F-22 Raptor</h3>
                 <p>An American single-seat, twin-engine, all-weather stealth tactical fighter aircraft.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 1,500 mph (2,414 km/h)</p>
                     <p>Armament - Missiles, bombs, cannon</p>
                     <p>First Made - 1997</p>
@@ -239,17 +265,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- Su-57 Felon -->
+        <div class="airplane">
 
-            <!-- Su-57 Felon -->
-            <section>
-                <img src="FImages/Su-57.jpeg" height="200" alt="Su-57">
+            <div class="airplane-details invisible">
                 <h3>Sukhoi Su-57</h3>
                 <p>A Russian stealth, single-seat, twin-engine multirole fifth-generation jet fighter.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 1,550 mph (2,494 km/h)</p>
                     <p>Armament - Missiles, bombs, cannon</p>
                     <p>First Made - 2010</p>
@@ -257,17 +283,17 @@
                     <p>Country - Russia</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- Eurofighter Typhoon -->
+        <div class="airplane">
 
-            <!-- Eurofighter Typhoon -->
-            <section>
-                <img src="FImages/Typhoon.jpeg" height="200" alt="Typhoon">
+            <div class="airplane-details invisible">
                 <h3>Eurofighter Typhoon</h3>
                 <p>A European twin-engine, canard–delta wing, multirole fighter.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 1,550 mph (2,494 km/h)</p>
                     <p>Armament - Missiles, bombs, cannon</p>
                     <p>First Made - 1994</p>
@@ -275,17 +301,17 @@
                     <p>Country - Various (UK, Germany, Italy, Spain)</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- Dassault Rafale -->
+        <div class="airplane">
 
-            <!-- Dassault Rafale -->
-            <section>
-                <img src="FImages/Rafale.jpeg" height="200" alt="Rafale">
+            <div class="airplane-details invisible">
                 <h3>Dassault Rafale</h3>
                 <p>A French twin-engine, canard delta wing, multirole fighter aircraft.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 1,188 mph (1,912 km/h)</p>
                     <p>Armament - Missiles, bombs, cannon</p>
                     <p>First Made - 1986</p>
@@ -293,17 +319,17 @@
                     <p>Country - France</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- J-20 Mighty Dragon -->
+        <div class="airplane">
 
-            <!-- J-20 Mighty Dragon -->
-            <section>
-                <img src="FImages/J-20.jpeg" height="200" alt="J-20">
+            <div class="airplane-details invisible">
                 <h3>Chengdu J-20</h3>
                 <p>A Chinese stealth, twinjet, all-weather, multirole fighter.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 1,305 mph (2,100 km/h)</p>
                     <p>Armament - Missiles, bombs, cannon</p>
                     <p>First Made - 2011</p>
@@ -311,17 +337,17 @@
                     <p>Country - China</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- F-35 Lightning II -->
+        <div class="airplane">
 
-            <!-- F-35 Lightning II -->
-            <section>
-                <img src="FImages/F-35.jpeg" height="200" alt="F-35">
+            <div class="airplane-details invisible">
                 <h3>F-35 Lightning II</h3>
                 <p>An American family of single-engine, stealth multirole fighters.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 1,200 mph (1,930 km/h)</p>
                     <p>Armament - Missiles, bombs, cannon</p>
                     <p>First Made - 2006</p>
@@ -329,17 +355,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- Lockheed Martin F-16 Fighting Falcon -->
+        <div class="airplane">
 
-            <!-- Lockheed Martin F-16 Fighting Falcon -->
-            <section>
-                <img src="FImages/F-16.jpeg" onclick="playMusicF16()" height="200" alt="F-16">
+            <div class="airplane-details invisible">
                 <h3>Lockheed Martin F-16 Fighting Falcon</h3>
                 <p>An American multirole fighter jet known for its agility and versatility.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 1,500 mph (2,414 km/h)</p>
                     <p>Armament - Missiles, bombs, cannon</p>
                     <p>First Made - 1976</p>
@@ -347,16 +373,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- McDonnell Douglas F-4 Phantom II -->
-            <section>
-                <img src="FImages/F-4.jpeg" height="200" alt="F-4 Phantom II">
+        <!-- McDonnell Douglas F-4 Phantom II -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>McDonnell Douglas F-4 Phantom II</h3>
                 <p>An American tandem-seat twinjet fighter and fighter-bomber.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 1,472 mph (2,370 km/h)</p>
                     <p>Armament - Missiles, bombs, cannon</p>
                     <p>First Made - 1958</p>
@@ -364,16 +391,17 @@
                     <p>Country - USA</p>
                     <p>In use - No (historic)</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Messerschmitt Bf 109 -->
-            <section>
-                <img src="FImages/Bf 109.webp" height="200" alt="Bf 109">
+        <!-- Messerschmitt Bf 109 -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Messerschmitt Bf 109</h3>
                 <p>A German World War II fighter aircraft.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 398 mph (641 km/h)</p>
                     <p>Armament - Cannons, machine guns</p>
                     <p>First Made - 1935</p>
@@ -381,16 +409,17 @@
                     <p>Country - Germany</p>
                     <p>In use - No (historic)</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- North American P-51 Mustang -->
-            <section>
-                <img src="FImages/P-51.jpeg" height="200" alt="P-51 Mustang">
+        <!-- North American P-51 Mustang -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>North American P-51 Mustang</h3>
                 <p>An American long-range, single-seat fighter and fighter-bomber.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 437 mph (703 km/h)</p>
                     <p>Armament - Cannons, machine guns</p>
                     <p>First Made - 1940</p>
@@ -398,16 +427,17 @@
                     <p>Country - USA</p>
                     <p>In use - No (historic)</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Boeing B-29 Superfortress -->
-            <section>
-                <img src="FImages/B-29.jpeg" height="200" alt="B-29 Superfortress">
+        <!-- Boeing B-29 Superfortress -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Boeing B-29 Superfortress</h3>
                 <p>An American heavy bomber used during World War II and the Korean War.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 357 mph (574 km/h)</p>
                     <p>Armament - Machine guns, bombs</p>
                     <p>First Made - 1943</p>
@@ -415,16 +445,17 @@
                     <p>Country - USA</p>
                     <p>In use - No (historic)</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Sukhoi Su-25 Frogfoot -->
-            <section>
-                <img src="FImages/Su-25.jpeg" height="200" alt="Su-25 Frogfoot">
+        <!-- Sukhoi Su-25 Frogfoot -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Sukhoi Su-25 Frogfoot</h3>
                 <p>A Russian close air support aircraft.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 610 mph (983 km/h)</p>
                     <p>Armament - Cannons, missiles, bombs</p>
                     <p>First Made - 1975</p>
@@ -432,16 +463,17 @@
                     <p>Country - Russia</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Boeing AH-64 Apache -->
-            <section>
-                <img src="FImages/AH-64.avif" height="200" alt="AH-64 Apache">
+        <!-- Boeing AH-64 Apache -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Boeing AH-64 Apache</h3>
                 <p>An American twin-turboshaft attack helicopter.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 182 mph (293 km/h)</p>
                     <p>Armament - Hellfire missiles, Hydra rockets, 30 mm M230 chain gun</p>
                     <p>First Made - 1981</p>
@@ -449,16 +481,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Cessna 172 Skyhawk -->
-            <section>
-                <img src="FImages/172.jpeg" height="200" alt="Cessna 172">
+        <!-- Cessna 172 Skyhawk -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Cessna 172 Skyhawk</h3>
                 <p>An American four-seat, single-engine, high-wing light utility aircraft.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 123 knots (142 mph or 230 km/h)</p>
                     <p>Armament - None (civilian aircraft)</p>
                     <p>First Made - 1955</p>
@@ -466,17 +499,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- Boeing 787 Dreamliner -->
+        <div class="airplane">
 
-            <!-- Boeing 787 Dreamliner -->
-            <section>
-                <img src="FImages/787.jpeg" height="200" alt="B787">
+            <div class="airplane-details invisible">
                 <h3>Boeing 787 Dreamliner</h3>
                 <p>A long-range, mid-size wide-body, twin-engine jet airliner.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 593 mph (954 km/h)</p>
                     <p>Armament - None (commercial aircraft)</p>
                     <p>First Made - 2009</p>
@@ -484,17 +517,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
+        <!-- Lockheed C-130 Hercules -->
+        <div class="airplane">
 
-            <!-- Lockheed C-130 Hercules -->
-            <section>
-                <img src="FImages/C-130.jpeg" height="200" alt="C-130 Hercules">
+            <div class="airplane-details invisible">
                 <h3>Lockheed C-130 Hercules</h3>
                 <p>An American four-engine turboprop military transport aircraft.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 366 mph (590 km/h)</p>
                     <p>Armament - Various configurations</p>
                     <p>First Made - 1954</p>
@@ -502,16 +535,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Bell UH-1 Iroquois (Huey) -->
-            <section>
-                <img src="FImages/UH-1.jpeg" height="200" alt="UH-1 Iroquois">
+        <!-- Bell UH-1 Iroquois (Huey) -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Bell UH-1 Iroquois (Huey)</h3>
                 <p>An American military helicopter.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 135 mph (217 km/h)</p>
                     <p>Armament - Various configurations</p>
                     <p>First Made - 1956</p>
@@ -519,16 +553,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Grumman F-14 Tomcat -->
-            <section>
-                <img src="FImages/F-14.jpeg" height="200" alt="F-14 Tomcat">
+        <!-- Grumman F-14 Tomcat -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Grumman F-14 Tomcat</h3>
                 <p>An American supersonic, twin-engine, two-seat, twin-tail, variable-sweep wing fighter aircraft.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - Mach 2.34 (1,544 mph or 2,485 km/h)</p>
                     <p>Armament - Missiles, bombs</p>
                     <p>First Made - 1970</p>
@@ -536,16 +571,17 @@
                     <p>Country - USA</p>
                     <p>In use - No (historic)</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Vought F4U Corsair -->
-            <section>
-                <img src="FImages/F4U.jpeg" height="200" alt="F4U Corsair">
+        <!-- Vought F4U Corsair -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Vought F4U Corsair</h3>
                 <p>An American fighter aircraft that saw service primarily in World War II and the Korean War.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 446 mph (718 km/h)</p>
                     <p>Armament - Cannons, machine guns</p>
                     <p>First Made - 1940</p>
@@ -553,16 +589,17 @@
                     <p>Country - USA</p>
                     <p>In use - No (historic)</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Lockheed P-38 Lightning -->
-            <section>
-                <img src="FImages/P-38.jpeg" height="200" alt="P-38 Lightning">
+        <!-- Lockheed P-38 Lightning -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Lockheed P-38 Lightning</h3>
                 <p>An American fighter used in World War II.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 414 mph (666 km/h)</p>
                     <p>Armament - Cannons, machine guns, bombs</p>
                     <p>First Made - 1939</p>
@@ -570,16 +607,17 @@
                     <p>Country - USA</p>
                     <p>In use - No (historic)</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- de Havilland Canada DHC-2 Beaver -->
-            <section>
-                <img src="FImages/DHC-2.jpeg" height="200" alt="DHC-2 Beaver">
+        <!-- de Havilland Canada DHC-2 Beaver -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>de Havilland Canada DHC-2 Beaver</h3>
                 <p>A single-engined, high-wing, propeller-driven, short takeoff and landing aircraft.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 140 mph (225 km/h)</p>
                     <p>Armament - None (civilian aircraft)</p>
                     <p>First Made - 1947</p>
@@ -587,16 +625,17 @@
                     <p>Country - Canada</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Sikorsky UH-60 Black Hawk -->
-            <section>
-                <img src="FImages/UH-60.jpeg" height="200" alt="UH-60 Black Hawk">
+        <!-- Sikorsky UH-60 Black Hawk -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Sikorsky UH-60 Black Hawk</h3>
                 <p>An American twin-engine, medium-lift utility helicopter.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 183 mph (295 km/h)</p>
                     <p>Armament - Various configurations</p>
                     <p>First Made - 1974</p>
@@ -604,16 +643,17 @@
                     <p>Country - USA</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Eurocopter EC135 -->
-            <section>
-                <img src="FImages/EC135.jpeg" height="200" alt="EC135">
+        <!-- Eurocopter EC135 -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Eurocopter EC135</h3>
                 <p>A twin-engine civil light utility helicopter.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 178 mph (286 km/h)</p>
                     <p>Armament - None (civilian aircraft)</p>
                     <p>First Made - 1994</p>
@@ -621,33 +661,35 @@
                     <p>Country - Germany</p>
                     <p>In use - Yes</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Antonov An-225 Mriya -->
-            <section>
-                <img src="FImages/AN-225.jpeg" height="200" alt="An-225 Mriya">
+        <!-- Antonov An-225 Mriya -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Antonov An-225 Mriya</h3>
                 <p>A strategic airlift cargo aircraft, designed by the Antonov Design Bureau in Ukraine.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - 528 mph (850 km/h)</p>
                     <p>Armament - None (cargo aircraft)</p>
                     <p>First Made - 1988</p>
                     <p>Role - Cargo aircraft</p>
                     <p>Country - Ukraine</p>
-                    <p>In use - Yes</p>
+                    <p>In use - No (Destroyed)</p>
                 </details>
-            </section>
-            <br><br>
+            </div>
+        </div>
 
-            <!-- Lockheed SR-71 Blackbird -->
-            <section>
-                <img src="FImages/SR-71.jpeg" height="200" alt="SR-71 Blackbird">
+        <!-- Lockheed SR-71 Blackbird -->
+        <div class="airplane">
+
+            <div class="airplane-details invisible">
                 <h3>Lockheed SR-71 Blackbird</h3>
                 <p>An American reconnaissance aircraft, operated by the United States Air Force.</p>
                 <details>
-                    <summary> Stats</summary>
+                    <summary>Stats</summary>
                     <p>Top speed - Mach 3.3 (2,200 mph or 3,540 km/h)</p>
                     <p>Armament - None (reconnaissance aircraft)</p>
                     <p>First Made - 1964</p>
@@ -655,9 +697,8 @@
                     <p>Country - USA</p>
                     <p>In use - No (historic)</p>
                 </details>
-            </section>
-            <br><br>
-        </center>
+            </div>
+        </div>
     </main>
     <footer>
         <center>
