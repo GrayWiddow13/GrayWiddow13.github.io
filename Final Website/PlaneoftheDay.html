@@ -148,34 +148,33 @@
     </header>
     <main>
         <script>
-            var Airplanes = document.getElementsByClassName('airplane-details');
+            const Airplanes = document.getElementsByClassName('airplane-details');
 
             function ShowRand() {
 
-                for (var i = 0; i < Airplanes.length; i++) {
+                for (let i = 0; i < Airplanes.length; i++) {
 
                     if (Airplanes[i].classList.contains('visible')) {
-                        var skip = i;
+                        var NumVis = i;
                         Airplanes[i].classList.remove('visible');
                         Airplanes[i].classList.add('invisible');
                     }
                 }
 
-                var randomNumber = skip;
+                let RandomNumber = NumVis;
 
-                while (randomNumber === skip) {
-                    randomNumber = Math.floor(Math.random() * Airplanes.length);
+                while (RandomNumber === NumVis) {
+                    RandomNumber = Math.floor(Math.random() * Airplanes.length);
                 }
 
-                Airplanes[randomNumber].classList.remove('invisible');
-                Airplanes[randomNumber].classList.add('visible');
-                currentIndex = index;
+                Airplanes[RandomNumber].classList.remove('invisible');
+                Airplanes[RandomNumber].classList.add('visible');
+
+
             }
-            var socket = new WebSocket('https://github.com/GrayWiddow13/GrayWiddow13.github.io.git');
-            socket.onmessage = function(event) {
-                var randomIndex = parseInt(event.data);
-                ShowPlane(randomIndex);
-            }
+
+
+            setInterval(ShowRand, 1000);
         </script>
 
         <!-- Boeing 747 -->
