@@ -169,9 +169,13 @@
 
                 Airplanes[randomNumber].classList.remove('invisible');
                 Airplanes[randomNumber].classList.add('visible');
+                currentIndex = index;
             }
-
-            setInterval(ShowRand, 1000);
+            var socket = new WebSocket('https://github.com/GrayWiddow13/GrayWiddow13.github.io.git');
+            socket.onmessage = function(event) {
+                var randomIndex = parseInt(event.data);
+                ShowPlane(randomIndex);
+            }
         </script>
 
         <!-- Boeing 747 -->
